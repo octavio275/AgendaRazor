@@ -1,0 +1,24 @@
+﻿@page
+@model Agenda.Pages.Categorias.DetalleModel
+@{
+    ViewData["Title"] = "Detalle de Categoría";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h2 class="text-info">Detalle de Categoría: @Html.DisplayFor(m => m.Categoria.Id)</h2>
+            <ul class="list-group">
+                <li class="list-group-item">ID: @Html.DisplayFor(m => m.Categoria.Id)</li>
+                <li class="list-group-item">Nombre: @Html.DisplayFor(m => m.Categoria.Nombre)</li>
+                <li class="list-group-item">Fecha de Creación: @Html.DisplayFor(m => m.Categoria.FechaCreacion)</li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a asp-page="Index" class="btn btn-success">Volver</a>
+        </div>
+    </div>
+</div>

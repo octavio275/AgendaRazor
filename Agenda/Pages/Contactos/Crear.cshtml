@@ -1,0 +1,60 @@
+﻿@page
+@model Agenda.Pages.Contactos.CrearModel
+@{
+    ViewData["Title"] = "Crear un Contacto";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h2 class="text-info">Crear un Nuevo Contacto</h2>
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label asp-for="ContactoVm.Contacto.Nombre" class="form-label"></label>
+                    <input asp-for="ContactoVm.Contacto.Nombre" class="form-control" placeholder="Ingresa el nombre" />
+                    <span asp-validation-for="ContactoVm.Contacto.Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ContactoVm.Contacto.Email" class="form-label"></label>
+                    <input asp-for="ContactoVm.Contacto.Email" class="form-control" placeholder="Ingresa el email" />
+                    <span asp-validation-for="ContactoVm.Contacto.Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ContactoVm.Contacto.Telefono" class="form-label"></label>
+                    <input asp-for="ContactoVm.Contacto.Telefono" class="form-control" placeholder="Ingresa el teléfono" />
+                    <span asp-validation-for="ContactoVm.Contacto.Telefono" class="text-danger"></span>
+                </div>
+
+                <!-- Aquí la lista de categorías-->
+                <div class="mb-3">
+                    <label asp-for="ContactoVm.Contacto.Categoria" class="form-label"></label>
+                    <select asp-for="ContactoVm.Contacto.CategoriaId" asp-items="@(new SelectList(Model.ContactoVm.ListaCategorias, "Id", "Nombre"))" class="form-control" >
+                    </select>
+                    <span asp-validation-for="ContactoVm.Contacto.Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ContactoVm.Contacto.FechaCreacion" class="form-label"></label>
+                    <input asp-for="ContactoVm.Contacto.FechaCreacion" class="form-control" />
+                    <span asp-validation-for="ContactoVm.Contacto.FechaCreacion" class="text-danger"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Crear Contacto</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a asp-page="Index" class="btn btn-success">Volver</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
